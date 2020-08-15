@@ -17,6 +17,9 @@ def alta():
     print(mycursor.rowcount, "record inserted.")
     return 
 def baja():
+    xclave  = input("ingrese clave a borrar :")
+    sql = "DELETE FROM registros WHERE clave = " + xclave
+    print("sql :", sql)
     return 'baja'
 def visualizar():
     return 'visu'

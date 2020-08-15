@@ -25,7 +25,7 @@ def baja():
     mycursor.execute(sql)
     mydb.commit()
     print(mycursor.rowcount, "record(s) deleted")
-    return 'baja'
+    return 
 
 def visualizar():
     sql = "SELECT * FROM registros"
@@ -35,8 +35,7 @@ def visualizar():
     for x in myresult:
        nroreg += 1
        print(nroreg , x)
-    return 'visu'
-
+    return 
 def opciones(i):
     switcher = {
             1: alta,
@@ -44,7 +43,7 @@ def opciones(i):
             3: visualizar,
             4: lambda: exit()
             }
-    func = switcher.get(i, lambda: 'Invalid')
+    func = switcher.get(i, lambda: print('Invalid'))
     return func()
 
 print ("progamacion en Python")
@@ -59,9 +58,8 @@ idopcion = 9
 while idopcion != 4:
     idopcion  = int(input("ingrese numero :"))
     print ("Texto ingresado es : ", idopcion)
-    print (opciones(idopcion))
-    print ("while ..")
+    opciones(idopcion)
     
-print("salgo while")
+print("fin")
 
 

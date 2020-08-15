@@ -28,6 +28,13 @@ def baja():
     return 'baja'
 
 def visualizar():
+    sql = "SELECT * FROM registros"
+    mycursor.execute(sql)
+    myresult = mycursor.fetchall()
+    nroreg=0
+    for x in myresult:
+       nroget += 1
+       print(nroreg , x)
     return 'visu'
 
 def opciones(i):

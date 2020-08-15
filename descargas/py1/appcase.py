@@ -7,6 +7,7 @@ mydb = mysql.connector.connect(
 )
 mycursor = mydb.cursor()
 
+
 def alta():
     dato  = input("ingrese registro :")
     print("reg:",dato)
@@ -17,7 +18,15 @@ def alta():
     print(mycursor.rowcount, "record inserted.")
     return 
 def baja():
-    return 'baja'
+    dato  = input("ingrese registro :")
+    print("reg:",dato)
+    sql = "DELETE FROM registros WHERE clave = %dato "
+    sql = "INSERT INTO registros (clave, valor) VALUES (%s, %s)"
+    val = (dato, dato)
+    mycursor.execute(sql, val)
+    mydb.commit()
+    print(mycursor.rowcount, "record inserted.")
+    return 
 def visualizar():
     return 'visu'
 
@@ -47,5 +56,3 @@ while idopcion != 4:
     print ("while ..")
     
 print("salgo while")
-
-

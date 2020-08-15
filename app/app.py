@@ -21,9 +21,9 @@ def baja():
     xclave  = input("ingrese clave a borrar :")
     sql = "DELETE FROM registros WHERE clave = " + xclave
     print("sql :", sql)
-    mycursor.execute(sql)
-    mydb.commit()
-    print(mycursor.rowcount, "record(s) deleted")
+    #mycursor.execute(sql)
+    #mydb.commit()
+    #print(mycursor.rowcount, "record(s) deleted")
     return 'baja'
 
 def visualizar():

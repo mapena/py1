@@ -19,8 +19,9 @@ def alta():
 
 def baja():
     xclave  = input("ingrese clave a borrar :")
-    sql = "DELETE FROM registros WHERE clave = " + xclave
-    print("sql :", sql)
+    #sql = "DELETE FROM customers WHERE address = 'Mountain 21'"
+    sql = "DELETE FROM registros WHERE clave = '" + xclave + "'"
+    print("sql =", sql)
     #mycursor.execute(sql)
     #mydb.commit()
     #print(mycursor.rowcount, "record(s) deleted")

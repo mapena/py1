@@ -33,7 +33,7 @@ def visualizar():
     myresult = mycursor.fetchall()
     nroreg=0
     for x in myresult:
-       nroget += 1
+       nroreg += 1
        print(nroreg , x)
     return 'visu'
 

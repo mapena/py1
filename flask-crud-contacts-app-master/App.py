@@ -13,16 +13,17 @@ mysql = MySQL(app)
 
 # settings
 app.secret_key = "mysecretkey"
-
+"""
 # routes
 @app.route('/')
 def Index():
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM contacts')
-    data = cur.fetchall()
-    cur.close()
-    return render_template('index.html', contacts = data)
-
+#    cur = mysql.connection.cursor()
+#    cur.execute('SELECT * FROM contacts')
+#    data = cur.fetchall()
+#    cur.close()
+#    return render_template('index.html', contacts = data)
+     return "Hola Marce"
+"""
 @app.route('/add_contact', methods=['POST'])
 def add_contact():
     if request.method == 'POST':

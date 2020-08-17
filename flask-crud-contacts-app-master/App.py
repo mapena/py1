@@ -1,4 +1,4 @@
-from flask import Flask,  render_template
+from flask import Flask,  render_template, request  
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -15,9 +15,21 @@ app = Flask(__name__)
 def Index():
      return render_template('index.html')
 
-@app.route('/add_reg')
+@app.route('/add_reg', methods=['POST'])
 def add_reg():
-         return 'Add registro'
+  if request.method == 'POST':
+        clave = request.form['clave']
+        valor = request.form['valor']
+        print("clave", clave)
+        print("valor", valor)
+        """
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO contacts (fullname, phone, email) VALUES (%s,%s,%s)", (fullname, phone, email))
+        mysql.connection.commit()
+        flash('Contact Added successfully')
+        return redirect(url_for('Index'))   
+        """
+        return "metodo add"
 
 @app.route('/delete_reg')
 def delete_reg():

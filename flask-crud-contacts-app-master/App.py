@@ -20,15 +20,18 @@ def add_reg():
   if request.method == 'POST':
         clave = request.form['clave']
         valor = request.form['valor']
-        print("clave", clave)
-        print("valor", valor)
-        """
-        cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO contacts (fullname, phone, email) VALUES (%s,%s,%s)", (fullname, phone, email))
-        mysql.connection.commit()
-        flash('Contact Added successfully')
-        return redirect(url_for('Index'))   
-        """
+        #print("clave", clave)
+        #print("valor", valor)
+        sql = "INSERT INTO registros (clave, valor) VALUES (%s, %s)"
+        val = (dato, dato)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        print(mycursor.rowcount, "record inserted.")
+        ###cur.execute("INSERT INTO contacts (fullname, phone, email) VALUES (%s,%s,%s)", (fullname, phone, email))
+        ###mysql.connection.commit()
+        ###flash('Contact Added successfully')
+        ###return redirect(url_for('Index'))   
+        
         return "metodo add"
 
 @app.route('/delete_reg')

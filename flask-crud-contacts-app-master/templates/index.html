@@ -32,6 +32,11 @@
           <tr>
             <td>{{reg.0}}</td>
             <td>{{reg.1}}</td>
+            <td>
+              <a href="/edit/{{contact.0}}" class="btn btn-secondary">edit</a>
+              <a href="/delete/{{contact.0}}" class="btn btn-danger btn-delete">delete</a>
+            </td>
+
           </tr>
     {% endfor %}
   </tbody>

@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import render_template # Archivo index.html
 from flask import request  # post
+from flask import url_for  # para definir url
+from flask import redirect  # para redireccionar la url
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -13,7 +15,7 @@ mycursor = mydb.cursor()
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/')   #pagina principal
 def Index():
      return render_template('index.html')
 
@@ -33,8 +35,7 @@ def add_reg():
         ###mysql.connection.commit()
         ###flash('Contact Added successfully')
         ###return redirect(url_for('Index'))   
-        
-        return "metodo add"
+        return redirect(url_for('Index'))  # se hace refencia a la fun Index que apunta a index.html
 
 @app.route('/delete_reg')
 def delete_reg():

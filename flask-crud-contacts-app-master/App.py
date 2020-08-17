@@ -1,4 +1,6 @@
-from flask import Flask,  render_template, request  
+from flask import Flask, 
+from flask import render_template, # Archivo index.html
+from flask import request  # post
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -36,7 +38,7 @@ def add_reg():
 
 @app.route('/delete_reg')
 def delete_reg():
-         return 'delete registro'
+         return 'delete registro2'
 
 if __name__ == "__main__":
     app.run(port=3000, debug=True)

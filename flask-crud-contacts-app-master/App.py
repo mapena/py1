@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def Index():
-     return render_template(index.html)
+     return render_template('index.html')
 
 @app.route('/add_reg')
 def add_reg():

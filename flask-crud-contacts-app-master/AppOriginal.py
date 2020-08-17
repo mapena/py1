@@ -3,7 +3,7 @@ from flask_mysqldb import MySQL
 
 # initializations
 app = Flask(__name__)
-"""
+
 # Mysql Connection
 app.config['MYSQL_HOST'] = 'localhost' 
 app.config['MYSQL_USER'] = 'root'
@@ -69,7 +69,7 @@ def delete_contact(id):
     mysql.connection.commit()
     flash('Contact Removed Successfully')
     return redirect(url_for('Index'))
-"""
+
 # starting the app
 if __name__ == "__main__":
     app.run(port=3000, debug=True)

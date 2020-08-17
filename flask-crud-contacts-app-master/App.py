@@ -6,6 +6,7 @@ from flask import redirect  # para redireccionar la url
 from flask import flash  # para mandar mensajes entre vistas
 import mysql.connector
 
+# mysql conection 
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
@@ -16,6 +17,7 @@ mycursor = mydb.cursor()
 
 app = Flask(__name__)
 
+app.secret_key = "mysecretkey"
 @app.route('/')   #pagina principal
 def Index():
      return render_template('index.html')
@@ -31,11 +33,12 @@ def add_reg():
         val = (clave,valor)
         mycursor.execute(sql, val)
         mydb.commit()
-        print(mycursor.rowcount, "record inserted.")
+        ###print(mycursor.rowcount, "record inserted.")
         ###cur.execute("INSERT INTO contacts (fullname, phone, email) VALUES (%s,%s,%s)", (fullname, phone, email))
         ###mysql.connection.commit()
         ###flash('Contact Added successfully')
         ###return redirect(url_for('Index'))   
+        flash('Registro Agregado')
         return redirect(url_for('Index'))  # se hace refencia a la fun Index que apunta a index.html
 
 @app.route('/delete_reg')

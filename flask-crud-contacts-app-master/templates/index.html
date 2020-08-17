@@ -1,3 +1,14 @@
+   <!--el motor de plantilla Flask usa jinja2 , si se usa entre {%   %} -->
+{% with messages = get_flashed_messages()  %}  <!--recibo mensajes de flash-->
+{% if messages %}  <!--pregunto si existe mensajes -->
+{% for message in messages %}   <!--recorro mensajes -->
+  <p>{{ message }}</p>   <!--muestro mensaje -->
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+
 <form action="/add_reg" method="POST">
     <input type="text" name="clave" placeholder="Clave">
     <input type="text" name="valor" placeholder="Valor">

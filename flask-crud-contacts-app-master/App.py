@@ -20,7 +20,11 @@ app = Flask(__name__)
 app.secret_key = "mysecretkey"  # se crea para crear una session que lo utiliza flash para los mensajes.
 @app.route('/')   #pagina principal
 def Index():
-     return render_template('index.html')
+    sql = "SELECT * FROM registros"
+    mycursor.execute(sql)
+    myresult = mycursor.fetchall()
+    print(myresult)
+     return render_template('index.html', registros=myresult)
 
 @app.route('/add_reg', methods=['POST'])
 def add_reg():

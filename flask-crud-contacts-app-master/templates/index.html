@@ -27,3 +27,12 @@
       <td>Operations</td>
     </tr>
   </thead>  
+  <tbody>
+    {% for reg in registros %}
+          <tr>
+            <td>{{reg.0}}</td>
+            <td>{{reg.1}}</td>
+          </tr>
+    {% endfor %}
+  </tbody>
+</table>

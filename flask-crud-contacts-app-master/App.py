@@ -1,3 +1,16 @@
+
+video 34:45
+video 34:45
+video 34:45
+video 34:45
+video 34:45
+video 34:45
+video 34:45
+video 34:45
+video 34:45
+video 34:45
+
+
 from flask import Flask
 from flask import render_template # Archivo index.html
 from flask import request  # post
@@ -13,11 +26,11 @@ mydb = mysql.connector.connect(
   password="",
   database="mydb"
 )
-mycursor = mydb.cursor()
+mycursor = mydb.cursor()   
 
 app = Flask(__name__)
 
-app.secret_key = "mysecretkey"
+app.secret_key = "mysecretkey"  # se crea para crear una session que lo utiliza flash para los mensajes.
 @app.route('/')   #pagina principal
 def Index():
      return render_template('index.html')

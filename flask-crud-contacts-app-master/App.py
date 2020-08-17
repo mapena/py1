@@ -7,11 +7,11 @@ def Index():
      return "Hola Marce3"
 
 @app.route('/add_reg')
-def add_contact():
+def add_reg():
          return 'Add registro'
 
 @app.route('/delete_reg')
-def add_contact():
+def delete_reg():
          return 'delete registro'
 
 if __name__ == "__main__":

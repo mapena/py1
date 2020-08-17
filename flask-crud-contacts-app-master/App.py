@@ -23,7 +23,7 @@ def add_reg():
         #print("clave", clave)
         #print("valor", valor)
         sql = "INSERT INTO registros (clave, valor) VALUES (%s, %s)"
-        val = (dato, dato)
+        val = (clave,valor)
         mycursor.execute(sql, val)
         mydb.commit()
         print(mycursor.rowcount, "record inserted.")

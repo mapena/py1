@@ -11,6 +11,7 @@
 {% endif %}
 {% endwith %}
 
+
 <form action="/add_reg" method="POST">
   <input type="text" name="clave" placeholder="Clave">
   <input type="text" name="valor" placeholder="Valor">
@@ -18,3 +19,11 @@
     Save
   </button>
 </form>
+<table>
+  <thead>
+    <tr>
+      <td>clave</td>
+      <td>valor</td>
+      <td>Operations</td>
+    </tr>
+  </thead>  

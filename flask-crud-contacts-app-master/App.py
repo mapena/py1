@@ -1,16 +1,3 @@
-
-video 34:45
-video 34:45
-video 34:45
-video 34:45
-video 34:45
-video 34:45
-video 34:45
-video 34:45
-video 34:45
-video 34:45
-
-
 from flask import Flask
 from flask import render_template # Archivo index.html
 from flask import request  # post

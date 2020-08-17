@@ -24,7 +24,7 @@ def Index():
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
     print(myresult)
-     return render_template('index.html', registros=myresult)
+    return render_template('index.html', registros=myresult)
 
 @app.route('/add_reg', methods=['POST'])
 def add_reg():

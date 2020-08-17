@@ -6,9 +6,13 @@ app = Flask(__name__)
 def Index():
      return "Hola Marce3"
 
-@app.route('/add_contact')
+@app.route('/add_reg')
 def add_contact():
-         return 'Add contacto'
+         return 'Add registro'
+
+@app.route('/delete_reg')
+def add_contact():
+         return 'delete registro'
 
 if __name__ == "__main__":
     app.run(port=3000, debug=True)

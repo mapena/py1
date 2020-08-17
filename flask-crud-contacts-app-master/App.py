@@ -22,7 +22,7 @@ def Index():
 #    data = cur.fetchall()
 #    cur.close()
 #    return render_template('index.html', contacts = data)
-     return "Hola Marce"
+     return 'Hola Marce'
 """
 @app.route('/add_contact', methods=['POST'])
 def add_contact():

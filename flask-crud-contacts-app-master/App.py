@@ -51,17 +51,18 @@ def update_contact(id):
         phone = request.form['phone']
         email = request.form['email']
         cur = mysql.connection.cursor()
-        cur.execute("""
-            UPDATE contacts
-            SET fullname = %s,
-                email = %s,
-                phone = %s
-            WHERE id = %s
-        """, (fullname, email, phone, id))
-        flash('Contact Updated Successfully')
-        mysql.connection.commit()
-        return redirect(url_for('Index'))
-
+"""
+        #cur.execute("""
+        #    UPDATE contacts
+        #    SET fullname = %s,
+        #        email = %s,
+        #        phone = %s
+        #    WHERE id = %s
+        #""", (fullname, email, phone, id))
+        #flash('Contact Updated Successfully')
+        #mysql.connection.commit()
+        #return redirect(url_for('Index'))
+"""
 @app.route('/delete/<string:id>', methods = ['POST','GET'])
 def delete_contact(id):
     cur = mysql.connection.cursor()

@@ -1,4 +1,4 @@
-from flask import Flask, 
+from flask import Flask
 from flask import render_template, # Archivo index.html
 from flask import request  # post
 import mysql.connector

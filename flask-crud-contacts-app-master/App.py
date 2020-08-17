@@ -3,6 +3,7 @@ from flask import render_template # Archivo index.html
 from flask import request  # post
 from flask import url_for  # para definir url
 from flask import redirect  # para redireccionar la url
+from flask import flash  # para mandar mensajes entre vistas
 import mysql.connector
 
 mydb = mysql.connector.connect(

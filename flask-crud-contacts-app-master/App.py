@@ -1,10 +1,19 @@
-from flask import Flask
+from flask import Flask,  render_template
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="",
+  database="mydb"
+)
+mycursor = mydb.cursor()
 
 app = Flask(__name__)
 
 @app.route('/')
 def Index():
-     return "Hola Marce3"
+     return render_template(index.html)
 
 @app.route('/add_reg')
 def add_reg():

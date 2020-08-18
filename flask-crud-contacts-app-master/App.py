@@ -23,7 +23,7 @@ def Index():
     sql = "SELECT * FROM registros"
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
-    print(myresult)
+    #print(myresult)
     return render_template('index.html', registros=myresult)
 
 @app.route('/add_reg', methods=['POST'])
@@ -49,7 +49,7 @@ def add_reg():
 def delete_reg(id):
     sql = "DELETE FROM registros WHERE clave like '" + id + "%'"
     print("sql",sql)
-    mycursor.execute('DELETE FROM registros WHERE clave like {0}',format(id))
+    mycursor.execute('DELETE FROM registros WHERE clave like {0}',id)
     mydb.commit()
     print(mycursor.rowcount, "record(s) deleted")
     flash('Registro Eliminado')

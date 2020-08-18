@@ -12,9 +12,10 @@ def myconectar():
     )
   except Exception as er:
     print("******************************************")
-    nroErr = er.split(" ", 1)
-    print("salgo2 x Excep:" + str(nroErr))
-    print("salgo2 x Excep:" + str(nroErr[0]))
+    print(er)
+    #nroErr = er.split(" ", 1)
+    #print("salgo2 x Excep:" + str(nroErr))
+    #print("salgo2 x Excep:" + str(nroErr[0]))
     print("******************************************")
 #  if (mydb):
 #    # Carry out normal procedure

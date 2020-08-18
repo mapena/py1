@@ -15,8 +15,8 @@ def myconectar():
     myresult = mycursor.fetchall()
     for x in myresult:
       print(x)
-  except:
-    print("Error de conexcion")
+  except Exception as e:
+    print("salgo x Error:" + str(e))
     exit()
 
 #  if (mydb):

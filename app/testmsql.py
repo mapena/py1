@@ -21,9 +21,11 @@ def myconectar():
 #    # Terminate
 #    print ("Connection unsuccessful")
 #    exit()
+myconectar()
+
 print("salgo por caida")
 exit()
-myconectar()
+
 mycursor = mydb.cursor()
 mycursor.execute("SELECT * FROM registros")
 print("********************************")

@@ -7,16 +7,21 @@ from flask import flash  # para mandar mensajes entre vistas
 import mysql.connector
 
 # mysql conection 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="",
-  database="mydb"
-)
-mycursor = mydb.cursor()
-app = Flask(__name__)
+def myconectar():
+  try:
+    global mydb
+    mydb = mysql.connector.connect(
+      host="localhost",
+      user="root",
+      password="",
+      database="mydb"
+    )
+  except Exception as e:
+    print("******************************************")
+    print("salgo x Error:" + str(e))
+    print("******************************************")
+    exit()
 
-app.secret_key = "mysecretkey"  # se crea para crear una session que lo utiliza flash para los mensajes.
 @app.route('/')   #pagina principal
 def Index():
     sql = "SELECT * FROM registros"
@@ -72,6 +77,13 @@ def update_reg(id):
     mydb.commit() 
     flash(str(mycursor.rowcount) + " Registro/s Actualizado/s")
   return redirect(url_for('Index'))
+#---------------------------------------------------------------------------------------------------------
+# main
+#---------------------------------------------------------------------------------------------------------
+myconectar()
+mycursor = mydb.cursor()
+app = Flask(__name__)
+app.secret_key = "mysecretkey"  # se crea para crear una session que lo utiliza flash para los mensajes.
 
 if __name__ == "__main__":
     app.run(port=3000, debug=True)

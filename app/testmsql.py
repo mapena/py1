@@ -10,9 +10,9 @@ def myconectar():
       password="",
       database="mydb"
     )
-   except Exception as e:
+  except Exception as er:
     print("******************************************")
-    print("salgo2 x Excep:" + str(ex))
+    print("salgo2 x Excep:" + str(er))
     print("******************************************")
 #  if (mydb):
 #    # Carry out normal procedure

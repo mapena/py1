@@ -48,12 +48,11 @@ def add_reg():
 @app.route('/delete_reg/<string:id>')
 def delete_reg(id):
     sql = "DELETE FROM registros WHERE clave like '" + id + "%'"
-    print("sql",sql)
+    #print("sql",sql)
     #mycursor.execute('DELETE FROM registros WHERE clave like {0}',id)
     mycursor.execute(sql)
     mydb.commit()
-    print(mycursor.rowcount, "record(s) deleted")
-    flash('Registro Eliminado')
+    flash(mycursor.rowcount,"Registro/s Eliminado/s")
     return redirect(url_for('Index'))  # se hace refencia a la fun Index que apunta a index.html
 
 

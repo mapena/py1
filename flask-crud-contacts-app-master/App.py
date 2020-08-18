@@ -69,7 +69,7 @@ def update_reg(id):
       WHERE clave = %s
     """,id,valor,id)
     flash(str(mycursor.rowcount) + " Registro/s Actualizado/s")
-return redirect(url_for('Index'))
+    return redirect(url_for('Index'))
 
 
 if __name__ == "__main__":

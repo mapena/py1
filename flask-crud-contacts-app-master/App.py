@@ -54,7 +54,7 @@ def get_reg(id):
     print("sql=", sql)
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
-    print(myresult)
+    print(myresult[0])
     return "recibido" 
 
 if __name__ == "__main__":

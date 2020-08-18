@@ -45,9 +45,10 @@ def add_reg():
         flash('Registro Agregado')
         return redirect(url_for('Index'))  # se hace refencia a la fun Index que apunta a index.html
 
-@app.route('/delete_reg')
-def delete_reg():
-         return 'delete registro2'
+@app.route('/delete_reg/<string:id>')
+def delete_reg(id):
+    print(id)
+    return id
 
 if __name__ == "__main__":
     app.run(port=3000, debug=True)

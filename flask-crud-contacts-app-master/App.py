@@ -91,30 +91,28 @@ def update_reg(id):
 #---------------------------------------------------------------------------------------------------------
 # main
 #---------------------------------------------------------------------------------------------------------
-
-if existedb() :
- mycursor = mydb.cursor()
-else  
-  try:
-      mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password=""
-      )
-      mycursor = mydb.cursor()
-      mycursor.execute("CREATE DATABASE mydbx")
-      mycursor.close
-      global mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="mydbx"
-      )
-      mycursor = mydb.cursor()
-      mycursor.execute("CREATE TABLE registros (clave VARCHAR(255), valor VARCHAR(255))")
-      #mycursor.close
-            
-  except Exception as er:
+try:
+  if existedb() :
+    mycursor = mydb.cursor()
+  else
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password=""
+    )
+    mycursor = mydb.cursor()
+    mycursor.execute("CREATE DATABASE mydbx")
+    mycursor.close
+    global mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="mydbx"
+    )
+    mycursor = mydb.cursor()
+    mycursor.execute("CREATE TABLE registros (clave VARCHAR(255), valor VARCHAR(255))")
+    #mycursor.close            
+except Exception as er:
     print("******************************************")
     print("Error al crear DB")
     print(er.errno)

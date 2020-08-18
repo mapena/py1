@@ -68,7 +68,8 @@ def update_reg(id):
       UPDATE registros 
       SET valor = %s
       WHERE clave = %s
-    """,(valor,id))    
+    """,(valor,id))   
+    mydb.commit() 
     flash(str(mycursor.rowcount) + " Registro/s Actualizado/s")
   return redirect(url_for('Index'))
 

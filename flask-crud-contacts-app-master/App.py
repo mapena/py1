@@ -13,8 +13,7 @@ mydb = mysql.connector.connect(
   password="",
   database="mydb"
 )
-mycursor = mydb.cursor()   
-
+mycursor = mydb.cursor()
 app = Flask(__name__)
 
 app.secret_key = "mysecretkey"  # se crea para crear una session que lo utiliza flash para los mensajes.
@@ -31,17 +30,11 @@ def add_reg():
   if request.method == 'POST':
         clave = request.form['clave']
         valor = request.form['valor']
-        #print("clave", clave)
-        #print("valor", valor)
         sql = "INSERT INTO registros (clave, valor) VALUES (%s, %s)"
         val = (clave,valor)
         mycursor.execute(sql, val)
         mydb.commit()
         ###print(mycursor.rowcount, "record inserted.")
-        ###cur.execute("INSERT INTO contacts (fullname, phone, email) VALUES (%s,%s,%s)", (fullname, phone, email))
-        ###mysql.connection.commit()
-        ###flash('Contact Added successfully')
-        ###return redirect(url_for('Index'))   
         flash(str(mycursor.rowcount) + " Registro/s Agregado/s")
         return redirect(url_for('Index'))  # se hace refencia a la fun Index que apunta a index.html
 

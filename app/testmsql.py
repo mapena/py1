@@ -10,7 +10,7 @@ def myconectar():
       password="",
       database="mydbx"
     )
-  except Exception as er:
+  except Exception as er:    #class 'mysql.connector.errors.ProgrammingError' 
     print("******************************************")
     print(er)
     xx = type(er)

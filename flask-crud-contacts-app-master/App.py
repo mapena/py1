@@ -21,11 +21,13 @@ def myconectar():
       password="",
       database="mydb"
     )
-  except Exception as e:
-    print("******************************************")
-    print("salgo x Error:" + str(e))
-    print("******************************************")
-    exit()
+  except Exception as er:    #class 'mysql.connector.errors.ProgrammingError' 
+  print("******************************************")
+  print(er)
+  print(er.errno)
+  print(er.msg)
+  print("******************************************")
+  exit()
 
 @app.route('/')   #pagina principal
 def Index():

@@ -53,7 +53,7 @@ def get_reg(id):
     mycursor.execute("SELECT * FROM registros WHERE clave = %s",(id))
     myresult = mycursor.fetchall()
     print(myresult)
-    return "fun edit_reg" 
+    return "recibido" 
 
 if __name__ == "__main__":
     app.run(port=3000, debug=True)

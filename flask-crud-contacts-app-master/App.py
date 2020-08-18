@@ -93,15 +93,16 @@ def update_reg(id):
 
 def creardb():
   try:
-      mydb = mysql.connector.connect(
+      Newdb = mysql.connector.connect(
         host="localhost",
         user="root",
         password=""
       )
-      mycursor = mydb.cursor()
+      mycursor = NEWdb.cursor()
       mycursor.execute("CREATE DATABASE mydbx")
-      mycursor = mydb.cursor()
+      mycursor = NEWdb.cursor()
       mycursor.execute("CREATE TABLE registros (clave VARCHAR(255), valor VARCHAR(255))")
+      mydb=NEWdb
   except Exception as er:
     print("******************************************")
     print("Error al crear DB")

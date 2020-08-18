@@ -23,7 +23,7 @@ def myconectar():
     )
   #class 'mysql.connector.errors.ProgrammingError'
   except Exception as er:
-
+    mydb.close
     print("******************************************")
     print("Error al querer hacer conexion con :mydbx")
     print(er.errno)
@@ -94,21 +94,21 @@ def update_reg(id):
 
 def creardb():
   try:
-      Newdb = mysql.connector.connect(
+      mydb = mysql.connector.connect(
         host="localhost",
         user="root",
         password=""
       )
-      mycursor = Newdb.cursor()
+      mycursor = mydb.cursor()
       mycursor.execute("CREATE DATABASE mydbx")
       mycursor.close
-      Newdb = mysql.connector.connect(
+      mydb = mysql.connector.connect(
         host="localhost",
         user="root",
         password="",
         database="mydbx"
       )
-      mycursor = Newdb.cursor()
+      mycursor = mydb.cursor()
       mycursor.execute("CREATE TABLE registros (clave VARCHAR(255), valor VARCHAR(255))")
       print("salgo")
       exit()

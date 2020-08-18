@@ -88,6 +88,8 @@ def update_reg(id):
     mydb.commit() 
     flash(str(mycursor.rowcount) + " Registro/s Actualizado/s")
   return redirect(url_for('Index'))
+
+  
 def creardb():
   try:
       mydb = mysql.connector.connect(

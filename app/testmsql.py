@@ -10,11 +10,7 @@ def myconectar():
       password="",
       database="mydb"
     )
-  except NameError as error
-    print("******************************************")
-    print("salgo1 x NameError:" + error
-    print("******************************************")
-   except Exception as ex:
+   except Exception as e:
     print("******************************************")
     print("salgo2 x Excep:" + str(ex))
     print("******************************************")

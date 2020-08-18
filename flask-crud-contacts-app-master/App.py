@@ -19,7 +19,7 @@ def myconectar():
       host="localhost",
       user="root",
       password="",
-      database="mydbx"
+      database="mydb"
     )
   except Exception as e:
     print("******************************************")

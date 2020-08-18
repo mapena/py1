@@ -10,12 +10,14 @@ def myconectar():
       password="",
       database="mydb"
     )
-  except Exception as e:
+  except NameError as er
     print("******************************************")
-    print("salgo x Error:" + str(e))
+    print("salgo1 x NameError:" + str(er))
     print("******************************************")
-    exit()
-
+   except Exception as ex:
+    print("******************************************")
+    print("salgo2 x Excep:" + str(ex))
+    print("******************************************")
 #  if (mydb):
 #    # Carry out normal procedure
 #    print ("Connection successful")
@@ -23,6 +25,8 @@ def myconectar():
 #    # Terminate
 #    print ("Connection unsuccessful")
 #    exit()
+print("salgo por caida")
+exit()
 myconectar()
 mycursor = mydb.cursor()
 mycursor.execute("SELECT * FROM registros")

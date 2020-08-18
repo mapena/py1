@@ -8,11 +8,17 @@ def myconectar():
       user="root",
       password="",
       database="mydb"
-   )
+    )
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT * FROM registros")
+    print("********************************")
+    myresult = mycursor.fetchall()
+    for x in myresult:
+      print(x)
   except:
     print("Error de conexcion")
     exit()
-  return mydb
+
 #  if (mydb):
 #    # Carry out normal procedure
 #    print ("Connection successful")
@@ -20,11 +26,5 @@ def myconectar():
 #    # Terminate
 #    print ("Connection unsuccessful")
 #    exit()
-
-mydb=myconectar()
-mycursor = mydb.cursor()
-mycursor.execute("SELECT * FROM registros")
-print("********************************")
-myresult = mycursor.fetchall()
-for x in myresult:
-  print(x)
+myconectar()
+print("salgo por ok")

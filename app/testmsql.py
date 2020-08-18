@@ -7,7 +7,7 @@ def myconectar():
       host="localhost",
       user="root",
       password="",
-      database="mydb"
+      database="mydbx"
     )
     mycursor = mydb.cursor()
     mycursor.execute("SELECT * FROM registros")

@@ -42,7 +42,7 @@ def add_reg():
         ###mysql.connection.commit()
         ###flash('Contact Added successfully')
         ###return redirect(url_for('Index'))   
-        flash('Registro Agregado')
+        flash(str(mycursor.rowcount) + " Registro/s Agregado/s")
         return redirect(url_for('Index'))  # se hace refencia a la fun Index que apunta a index.html
 
 @app.route('/delete_reg/<string:id>')
@@ -52,9 +52,7 @@ def delete_reg(id):
     #mycursor.execute('DELETE FROM registros WHERE clave like {0}',id)
     mycursor.execute(sql)
     mydb.commit()
-    salida=str(mycursor.rowcount) + " Registro/s Eliminado/s"
-    print(salida)
-    flash("borado")
+    flash(str(mycursor.rowcount) + " Registro/s Eliminado/s")
     return redirect(url_for('Index'))  # se hace refencia a la fun Index que apunta a index.html
 
 

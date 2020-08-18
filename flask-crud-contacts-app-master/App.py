@@ -47,7 +47,11 @@ def add_reg():
 
 @app.route('/delete_reg/<string:id>')
 def delete_reg(id):
-    print(id)
+    sql = "DELETE FROM registros WHERE clave like '" + id + "%'"
+    print("sql",sql)
+    #mycursor.execute(sql)
+    #mydb.commit()
+    #print(mycursor.rowcount, "record(s) deleted")
     return id
 
 if __name__ == "__main__":

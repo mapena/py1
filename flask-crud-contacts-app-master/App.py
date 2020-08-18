@@ -24,11 +24,14 @@ def myconectar():
   #class 'mysql.connector.errors.ProgrammingError'
   except Exception as er:
     print("******************************************")
-    print(er)
     print(er.errno)
     print(er.msg)
     print("******************************************")
-    exit()
+    if er.errno == 1049:
+      # crear DB
+      creardb()
+    else:
+      exit()
 
 @app.route('/')   #pagina principal
 def Index():
@@ -85,6 +88,23 @@ def update_reg(id):
     mydb.commit() 
     flash(str(mycursor.rowcount) + " Registro/s Actualizado/s")
   return redirect(url_for('Index'))
+def creardb():
+  try:
+      mydb = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password=""
+      )
+      mycursor = mydb.cursor()
+      mycursor.execute("CREATE DATABASE mydb")
+      mycursor = mydb.cursor()
+      mycursor.execute("CREATE TABLE registros (clave VARCHAR(255), valor VARCHAR(255))")
+  except Exception as er:
+    print("******************************************")
+    print(er.errno)
+    print(er.msg)
+    print("******************************************")
+    exit()
 #---------------------------------------------------------------------------------------------------------
 # main
 #---------------------------------------------------------------------------------------------------------

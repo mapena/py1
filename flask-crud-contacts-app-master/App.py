@@ -62,15 +62,16 @@ def update_reg(id):
   if request.method == 'POST':
     valor=request.form["valor"]  # request.form["valor"] es tomado del edit-registro.html campo valor
                                  # edit-registro.html por medio del "form action" lo manda a este funcion (update_reg) a # traves de la route('/update/<id>'
-    mycursor.execute("""
-    UPDATE registros 
-      SET clave = %s,
-      SET valor = %s
-      WHERE clave = %s
-    """,id,valor,id)
+    print("id=", id)
+    print("valor", valor)
+    #mycursor.execute("""
+    #  UPDATE registros 
+    #  SET clave = %s,
+    #  SET valor = %s
+    #  WHERE clave = %s
+    #""",id,valor,id)    
     flash(str(mycursor.rowcount) + " Registro/s Actualizado/s")
   return redirect(url_for('Index'))
-
 
 if __name__ == "__main__":
     app.run(port=3000, debug=True)

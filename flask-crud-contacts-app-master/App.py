@@ -94,7 +94,7 @@ def update_reg(id):
 try:
   if existedb():
     mycursor = mydb.cursor()
-  else
+  else:
     mydb = mysql.connector.connect(
     host="localhost",
     user="root",

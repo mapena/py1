@@ -102,8 +102,14 @@ def creardb():
       mycursor = Newdb.cursor()
       mycursor.execute("CREATE DATABASE mydbx")
       mycursor.close
-
-      
+      Newdb = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",
+        database="mydbx"
+      )
+      mycursor = Newdb.cursor()
+      mycursor.execute("CREATE TABLE registros (clave VARCHAR(255), valor VARCHAR(255))")
       print("salgo")
       exit()
   except Exception as er:

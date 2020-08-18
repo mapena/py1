@@ -13,6 +13,8 @@ def myconectar():
   except Exception as er:
     print("******************************************")
     print(er)
+    xx = type(er)
+    print(xx)
     #nroErr = er.split(" ", 1)
     #print("salgo2 x Excep:" + str(nroErr))
     #print("salgo2 x Excep:" + str(nroErr[0]))

@@ -26,6 +26,7 @@ def myconectar():
     
     print("******************************************")
     print("Error al querer hacer conexion con :mydbx")
+    print("Se procede a generar la DataBase :mydbx")
     print(er.errno)
     print(er.msg)
     print("******************************************")
@@ -110,8 +111,7 @@ def creardb():
       )
       mycursor = mydb.cursor()
       mycursor.execute("CREATE TABLE registros (clave VARCHAR(255), valor VARCHAR(255))")
-      print("salgo")
-      exit()
+            
   except Exception as er:
     print("******************************************")
     print("Error al crear DB")

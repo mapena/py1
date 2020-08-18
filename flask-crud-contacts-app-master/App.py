@@ -103,7 +103,8 @@ try:
     mycursor = mydb.cursor()
     mycursor.execute("CREATE DATABASE mydbx")
     mycursor.close
-    global mydb = mysql.connector.connect(
+    del mydb
+    mydb = mysql.connector.connect(
     host="localhost",
     user="root",
     password="",

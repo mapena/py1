@@ -50,7 +50,9 @@ def delete_reg(id):
 
 @app.route('/edit_reg/<id>')   #id recibe un parametro
 def get_reg(id):
-    mycursor.execute("SELECT * FROM registros WHERE clave = %s",(id))
+    sql = "SELECT * FROM registros WHERE clave = " + id 
+    print("sql=", sql)
+    mycursor.execute(sql)
     myresult = mycursor.fetchall()
     print(myresult)
     return "recibido" 

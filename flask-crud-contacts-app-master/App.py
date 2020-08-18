@@ -52,7 +52,7 @@ def delete_reg(id):
     #mycursor.execute('DELETE FROM registros WHERE clave like {0}',id)
     mycursor.execute(sql)
     mydb.commit()
-    flash(mycursor.rowcount,"Registro/s Eliminado/s")
+    flash(mycursor.rowcount + " Registro/s Eliminado/s")
     return redirect(url_for('Index'))  # se hace refencia a la fun Index que apunta a index.html
 
 

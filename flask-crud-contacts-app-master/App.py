@@ -66,10 +66,9 @@ def update_reg(id):
     print("valor=", valor)
     mycursor.execute("""
       UPDATE registros 
-      SET clave = %s,
       SET valor = %s
       WHERE clave = %s
-    """,(id,valor,id))    
+    """,(valor,id))    
     flash(str(mycursor.rowcount) + " Registro/s Actualizado/s")
   return redirect(url_for('Index'))
 

@@ -1,6 +1,6 @@
 import mysql.connector
 
-mydb = mysql.connector
+
 def myconectar():
   try:
     mydb = mysql.connector.connect(
@@ -12,6 +12,7 @@ def myconectar():
   except:
     print("Error de conexcion")
     exit()
+  return mydb
 #  if (mydb):
 #    # Carry out normal procedure
 #    print ("Connection successful")
@@ -20,7 +21,7 @@ def myconectar():
 #    print ("Connection unsuccessful")
 #    exit()
 
-myconectar()
+mydb=myconectar()
 mycursor = mydb.cursor()
 mycursor.execute("SELECT * FROM registros")
 print("********************************")

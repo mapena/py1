@@ -23,7 +23,7 @@ def myconectar():
     )
   #class 'mysql.connector.errors.ProgrammingError'
   except Exception as er:
-    mydb.close
+    
     print("******************************************")
     print("Error al querer hacer conexion con :mydbx")
     print(er.errno)

@@ -5,11 +5,10 @@ from flask import url_for  # para definir url
 from flask import redirect  # para redireccionar la url
 from flask import flash  # para mandar mensajes entre vistas
 import mysql.connector
-
-
+global mydb
 app = Flask(__name__)
 app.secret_key = "mysecretkey"  # se crea para crear una session que lo utiliza flash para los mensajes.
-global mydb
+
 #--------------------------------------------------------------------------------------------------------
 # mysql conection 
 def myconectar():
@@ -122,6 +121,7 @@ def creardb():
 #---------------------------------------------------------------------------------------------------------
 # main
 #---------------------------------------------------------------------------------------------------------
+
 myconectar()
 mycursor = mydb.cursor()
 

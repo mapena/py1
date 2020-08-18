@@ -24,6 +24,7 @@ def myconectar():
   #class 'mysql.connector.errors.ProgrammingError'
   except Exception as er:
     print("******************************************")
+    print("Error al querer hacer conexion con :mydbx")
     print(er.errno)
     print(er.msg)
     print("******************************************")
@@ -89,7 +90,7 @@ def update_reg(id):
     flash(str(mycursor.rowcount) + " Registro/s Actualizado/s")
   return redirect(url_for('Index'))
 
-  
+
 def creardb():
   try:
       mydb = mysql.connector.connect(
@@ -98,11 +99,12 @@ def creardb():
         password=""
       )
       mycursor = mydb.cursor()
-      mycursor.execute("CREATE DATABASE mydb")
+      mycursor.execute("CREATE DATABASE mydbx")
       mycursor = mydb.cursor()
       mycursor.execute("CREATE TABLE registros (clave VARCHAR(255), valor VARCHAR(255))")
   except Exception as er:
     print("******************************************")
+    print("Error al crear DB")
     print(er.errno)
     print(er.msg)
     print("******************************************")

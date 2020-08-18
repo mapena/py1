@@ -9,12 +9,12 @@ import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = "mysecretkey"  # se crea para crear una session que lo utiliza flash para los mensajes.
-
+global mydb
 #--------------------------------------------------------------------------------------------------------
 # mysql conection 
 def myconectar():
   try:
-    global mydb
+    
     mydb = mysql.connector.connect(
       host="localhost",
       user="root",

@@ -8,28 +8,15 @@ import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = "mysecretkey"  # se crea para crear una session que lo utiliza flash para los mensajes.
-
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="mydbx"
+)
+mycursor = mydb.cursor()          
 #--------------------------------------------------------------------------------------------------------
 # mysql conection 
-def exitedb():
-  rta = True
-  try:
-    
-    mydb = mysql.connector.connect(
-      host="localhost",
-      user="root",
-      password="",
-      database="mydbx"
-    )
-  #class 'mysql.connector.errors.ProgrammingError'
-  except Exception as er:
-    rta=False
-    print("******************************************")
-    print("Error al querer hacer conexion con :mydbx")
-    print(er.errno)
-    print(er.msg)
-    print("******************************************")
-  return rta
 
 @app.route('/')   #pagina principal
 def Index():
@@ -93,29 +80,4 @@ def update_reg(id):
 #---------------------------------------------------------------------------------------------------------
 
  if __name__ == "__main__":
-    app.run(port=3000, debug=True)
-
-mydb = mysql.connector.connect(
-host="localhost",
-user="root",
-password=""
-)
-try:
-  mycursor = mydb.cursor()
-  mycursor.execute("CREATE DATABASE mydbx")
-  mycursor = mydb.cursor()
-  mycursor.execute("CREATE TABLE registros (clave VARCHAR(255), valor VARCHAR(255))")
-  mycursor.close
-  mydb = mysql.connector.connect(
-      host="localhost",
-      user="root",
-      password="",
-      database="mydbx"
-  )          
-except Exception as er:
-    print("******************************************")
-    print("Error al crear DB")
-    print(er.errno)
-    print(er.msg)
-    print("******************************************")
-    exit()
+   app.run(port=3000, debug=True)

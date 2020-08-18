@@ -19,7 +19,7 @@ def myconectar():
       host="localhost",
       user="root",
       password="",
-      database="mydb"
+      database="mydbx"
     )
   #class 'mysql.connector.errors.ProgrammingError'
   except Exception as er:

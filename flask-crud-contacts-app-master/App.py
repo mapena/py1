@@ -5,13 +5,14 @@ from flask import url_for  # para definir url
 from flask import redirect  # para redireccionar la url
 from flask import flash  # para mandar mensajes entre vistas
 import mysql.connector
-global mydb
+
 app = Flask(__name__)
 app.secret_key = "mysecretkey"  # se crea para crear una session que lo utiliza flash para los mensajes.
 
 #--------------------------------------------------------------------------------------------------------
 # mysql conection 
-def myconectar():
+def exitedb():
+  rta = True
   try:
     
     mydb = mysql.connector.connect(
@@ -22,18 +23,13 @@ def myconectar():
     )
   #class 'mysql.connector.errors.ProgrammingError'
   except Exception as er:
-    
+    rta=False
     print("******************************************")
     print("Error al querer hacer conexion con :mydbx")
-    print("Se procede a generar la DataBase :mydbx")
     print(er.errno)
     print(er.msg)
     print("******************************************")
-    if er.errno == 1049:
-      # crear DB
-      creardb()
-    else:
-      exit()
+  return rta
 
 @app.route('/')   #pagina principal
 def Index():
@@ -92,7 +88,13 @@ def update_reg(id):
   return redirect(url_for('Index'))
 
 
-def creardb():
+#---------------------------------------------------------------------------------------------------------
+# main
+#---------------------------------------------------------------------------------------------------------
+
+if existedb() :
+ mycursor = mydb.cursor()
+else  
   try:
       mydb = mysql.connector.connect(
         host="localhost",
@@ -102,7 +104,7 @@ def creardb():
       mycursor = mydb.cursor()
       mycursor.execute("CREATE DATABASE mydbx")
       mycursor.close
-      mydb = mysql.connector.connect(
+      global mydb = mysql.connector.connect(
         host="localhost",
         user="root",
         password="",
@@ -110,6 +112,7 @@ def creardb():
       )
       mycursor = mydb.cursor()
       mycursor.execute("CREATE TABLE registros (clave VARCHAR(255), valor VARCHAR(255))")
+      #mycursor.close
             
   except Exception as er:
     print("******************************************")
@@ -118,12 +121,7 @@ def creardb():
     print(er.msg)
     print("******************************************")
     exit()
-#---------------------------------------------------------------------------------------------------------
-# main
-#---------------------------------------------------------------------------------------------------------
 
-myconectar()
-mycursor = mydb.cursor()
 
-if __name__ == "__main__":
+ if __name__ == "__main__":
     app.run(port=3000, debug=True)

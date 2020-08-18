@@ -6,6 +6,11 @@ from flask import redirect  # para redireccionar la url
 from flask import flash  # para mandar mensajes entre vistas
 import mysql.connector
 
+
+app = Flask(__name__)
+app.secret_key = "mysecretkey"  # se crea para crear una session que lo utiliza flash para los mensajes.
+
+#--------------------------------------------------------------------------------------------------------
 # mysql conection 
 def myconectar():
   try:
@@ -82,8 +87,6 @@ def update_reg(id):
 #---------------------------------------------------------------------------------------------------------
 myconectar()
 mycursor = mydb.cursor()
-app = Flask(__name__)
-app.secret_key = "mysecretkey"  # se crea para crear una session que lo utiliza flash para los mensajes.
 
 if __name__ == "__main__":
     app.run(port=3000, debug=True)

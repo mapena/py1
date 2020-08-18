@@ -71,5 +71,6 @@ def update_reg(id):
     flash(str(mycursor.rowcount) + " Registro/s Actualizado/s")
 return redirect(url_for('Index'))
 
+
 if __name__ == "__main__":
     app.run(port=3000, debug=True)

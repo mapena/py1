@@ -8,10 +8,12 @@ def myconectar():
       host="localhost",
       user="root",
       password="",
-      database="mydbx"
+      database="mydb"
     )
   except Exception as e:
+    print("******************************************")
     print("salgo x Error:" + str(e))
+    print("******************************************")
     exit()
 
 #  if (mydb):

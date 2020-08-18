@@ -61,7 +61,7 @@ def get_reg(id):
 def update_reg(id):
   if request.method == 'POST':
     valor=request.form["valor"]  # request.form["valor"] es tomado del edit-registro.html campo valor
-                                 # edit-registro.html por medio del "form action" lo manda a este funcion (update_reg) a traves de la route('/update/<id>'
+                                 # edit-registro.html por medio del "form action" lo manda a este funcion (update_reg) a # traves de la route('/update/<id>'
     mycursor.execute("""
     UPDATE registros 
       SET clave = %s,

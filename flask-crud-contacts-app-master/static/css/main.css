@@ -1,6 +1,7 @@
 header {
   background : red;
-    margin:auto;
+  margin:auto;
   display:block;
   vertical-align: center;
+  align-content: center;
 }

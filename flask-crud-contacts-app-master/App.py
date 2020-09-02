@@ -19,7 +19,7 @@ mycursor = mydb.cursor()
 # mysql conection 
 
 @app.route('/')   #pagina principal
-def Index():
+def Index01():
     sql = "SELECT * FROM registros"
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
@@ -37,7 +37,7 @@ def add_reg():
         mydb.commit()
         ###print(mycursor.rowcount, "record inserted.")
         flash(str(mycursor.rowcount) + " Registro/s Agregado/s")
-        return redirect(url_for('Index'))  # se hace refencia a la fun Index que apunta a index.html
+        return redirect(url_for('Index01'))  # se hace refencia a la fun Index que apunta a index.html
 
 @app.route('/delete_reg/<string:id>')    #no hace falta indicar q es un string, se puede colocar id directamente.
 def delete_reg(id):
@@ -47,7 +47,7 @@ def delete_reg(id):
     mycursor.execute(sql)
     mydb.commit()
     flash(str(mycursor.rowcount) + " Registro/s Eliminado/s")
-    return redirect(url_for('Index'))  # se hace refencia a la fun Index que apunta a index.html
+    return redirect(url_for('Index01'))  # se hace refencia a la fun Index que apunta a index.html
 
 @app.route('/edit_reg/<id>')   #id recibe un parametro
 def get_reg(id):
@@ -72,7 +72,7 @@ def update_reg(id):
     """,(valor,id))   
     mydb.commit() 
     flash(str(mycursor.rowcount) + " Registro/s Actualizado/s")
-  return redirect(url_for('Index'))
+  return redirect(url_for('Index01'))
 
 
 #---------------------------------------------------------------------------------------------------------

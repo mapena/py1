@@ -1,4 +1,5 @@
-
+{% extends "layout.html" %}
+{% block body %}
 <form action="/update/{{registro.0}}" method="POST">
   <input type="text" name="clave" placeholder="Clave" value="{{registro.0}}">
   <input type="text" name="valor" placeholder="Valor" value="{{registro.1}}">
@@ -6,3 +7,5 @@
     Save
   </button>
 </form>
+
+{% endblock %}

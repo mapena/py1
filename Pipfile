@@ -1,12 +1,12 @@
 [[source]]
-name = "app"
+name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
 
 [packages]
-colorama = "*"
+"mysql.connector" = "*"
 
 [requires]
 python_version = "3.8"
